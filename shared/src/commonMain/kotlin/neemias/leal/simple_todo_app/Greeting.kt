@@ -4,6 +4,6 @@ class Greeting {
     private val platform: Platform = getPlatform()
 
     fun greet(): String {
-        return "App running on ${platform.name}"
+        return "App running on: ${platform.name}"
     }
 }
