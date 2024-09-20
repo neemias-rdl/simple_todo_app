@@ -25,7 +25,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.androidx.navigation.compose)
+            // Shared dependencies
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
