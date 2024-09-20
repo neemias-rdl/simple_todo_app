@@ -18,7 +18,7 @@ fun AppNavHost() {
             HomePage(navController)
         }
         composable(route = NavRoutes.TASK_LIST.name) {
-            TaskListPage()
+            TaskListPage(navController)
         }
     }
 }
