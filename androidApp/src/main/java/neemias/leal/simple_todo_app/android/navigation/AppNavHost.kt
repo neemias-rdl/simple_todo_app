@@ -12,12 +12,12 @@ fun AppNavHost() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination =  "home",
+        startDestination =  NavRoutes.HOME.name,
     ) {
-        composable(route = "home") {
+        composable(route = NavRoutes.HOME.name) {
             HomePage(navController)
         }
-        composable("task_list") {
+        composable(route = NavRoutes.TASK_LIST.name) {
             TaskListPage()
         }
     }
