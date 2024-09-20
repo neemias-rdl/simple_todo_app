@@ -1,4 +1,4 @@
-package neemias.leal.simple_todo_app.android
+package neemias.leal.simple_todo_app.android.pages
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -20,39 +20,31 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import neemias.leal.simple_todo_app.TaskModel
+import neemias.leal.simple_todo_app.android.MyApplicationTheme
 import neemias.leal.simple_todo_app.genMockTasks
 
 
 @Composable
-fun TaskListPage(text: String) {
+fun TaskListPage() {
     // TODO: mudar mocks para dados reais
     val tasks = genMockTasks()
-
-    Column(
-        horizontalAlignment = Alignment.Start,
-    ) {
-        LazyColumn (
-            modifier = Modifier
-                .padding(5.dp)
-        )
-        {
-            items(tasks.size) { index ->
-                val task = remember { mutableStateOf(tasks[index]) }
-                TaskCard(
-                    task.value,
-                    onClick = {
-                        task.value = task.value.copy(
-                            isDone = !task.value.isDone
-                        )
-                    }
-                )
-            }
+    LazyColumn (
+        modifier = Modifier
+            .padding(5.dp)
+    )
+    {
+        items(tasks.size) { index ->
+            val task = remember { mutableStateOf(tasks[index]) }
+            TaskCard(
+                task.value,
+                onClick = {
+                    task.value = task.value.copy(
+                        isDone = !task.value.isDone
+                    )
+                }
+            )
         }
-        Spacer(modifier = Modifier.weight(1f))
-        Divider()
-        Text(text = text)
     }
-
 }
 
 @Composable
@@ -81,13 +73,5 @@ fun TaskCard(task: TaskModel, onClick: () -> Unit) {
                 onClick = onClick
             )
         }
-    }
-}
-
-@Preview
-@Composable
-fun DefaultPreview() {
-    MyApplicationTheme {
-        TaskListPage("App running on Android")
     }
 }
