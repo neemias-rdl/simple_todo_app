@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
 import neemias.leal.simple_todo_app.Greeting
+import neemias.leal.simple_todo_app.android.navigation.AppNavHost
+import neemias.leal.simple_todo_app.android.pages.TaskListPage
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +20,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background,
                     contentColor = MaterialTheme.colorScheme.onBackground,
                 ) {
-                    TaskListPage(Greeting().greet())
+                    AppNavHost()
                 }
             }
         }
